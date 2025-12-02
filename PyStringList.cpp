@@ -31,7 +31,7 @@ bool PyStringList::isValidInput(const string& s)
 {
     if (s.empty())
     {
-        std::cout << "Error: Empty string is not allowed.\n";
+        cout << "Error: Empty string is not allowed.\n";
         return false;
     }
 
@@ -101,9 +101,6 @@ void PyStringList::removeAt(int index)
     length--;
 }
 
-// =======================================================
-// Clear list
-// =======================================================
 void PyStringList::clear()
 {
     for (int i = 0; i < length; i++)
@@ -112,17 +109,11 @@ void PyStringList::clear()
     length = 0;
 }
 
-// =======================================================
-// Size
-// =======================================================
 int PyStringList::size() const
 {
     return length;
 }
 
-// =======================================================
-// Empty?
-// =======================================================
 bool PyStringList::isEmpty() const
 {
     return length == 0;
