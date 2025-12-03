@@ -19,8 +19,9 @@ void PyStringList::resize()
     int newCapacity = capacity * 2;
     void** newArray = new void*[newCapacity];
 
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < length; i++){
         newArray[i] = items[i];
+    }
 
     delete[] items;
     items = newArray;
@@ -49,11 +50,13 @@ bool PyStringList::isValidInput(const string& s)
 
 void PyStringList::append(const string& value)
 {
-    if (!isValidInput(value))
+    if (!isValidInput(value)){
         return;
+    }
 
-    if (length == capacity)
+    if (length == capacity){
         resize();
+    }
 
     string* stored = new string(value);
     items[length] = stored;
@@ -104,7 +107,7 @@ void PyStringList::removeAt(int index)
 void PyStringList::clear()
 {
     for (int i = 0; i < length; i++)
-        delete static_cast<std::string*>(items[i]);
+        delete static_cast<string*>(items[i]);
 
     length = 0;
 }
